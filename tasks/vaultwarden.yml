@@ -1,0 +1,19 @@
+- name: Start vaultwarden container
+  docker_container:
+    name: vaultwarden
+    image: vaultwarden/server:latest
+    user: "{{ vaultwarden_uid:vaultwarden_gid | default('9009:9009') }}"
+    networks:
+      - name: nginx_network
+    volumes:
+      - /opt/vaultwarden:/data
+    env:
+      "SIGNUPS_ALLOWED": "{{ vaultwarden_signup | default('false')}}"
+      "SHOW_PASSWORD_HINT": "{{ vaultwarden_password_hint | default('false') }}"
+      "ADMIN_TOKEN": "{{ vaultwarden_admin_token}}"
+      "DISABLE_ADMIN_TOKEN": "{{ vaultwarden_disable_admin_token | default('true')}}"
+      "VIRTUAL_HOST": "{{ vaultwarden_domain }}"
+      "LETSENCRYPT_HOST": "{{ vaultwarden_domain }}"
+      "VIRTUAL_PORT": "80"
+    restart_policy: always
+    state: started
