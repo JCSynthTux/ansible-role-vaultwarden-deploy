@@ -1,0 +1,8 @@
+- ansible.builtin.import_tasks: ./user.yml
+
+- ansible.builtin.import_tasks: ./volumes.yml
+
+- ansible.builtin.import_tasks: ./vaultwarden.yml
+
+- ansible.builtin.import_tasks: ./migration.yml
+  tags: migrate-vaultwarden
