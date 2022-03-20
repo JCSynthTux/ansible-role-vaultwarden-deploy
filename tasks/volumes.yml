@@ -1,0 +1,7 @@
+- name: Create vaultwarden data volume
+  file:
+    path: /opt/vaultwarden
+    state: directory
+    owner: vaultwarden
+    group: vaultwarden
+    mode: '0700'
