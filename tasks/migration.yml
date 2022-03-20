@@ -1,0 +1,15 @@
+- name: Stop vaultwarden container
+  docker_container:
+    name: vaultwarden
+    state: stopped
+  when: vaultwarden_data is defined and vaultwarden_install == true
+
+- name: Migrate vaultwarden data
+  copy:
+    src: "{{ vaultwarden_data }}"
+    dest: /opt/vaultwarden/
+    owner: vaultwarden
+    group: vaultwarden
+    mode: '0700'
+  when: vaultwarden_data is defined and vaultwarden_install == true
+  notify: Restart vaultwarden container
