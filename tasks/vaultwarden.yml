@@ -2,7 +2,7 @@
   docker_container:
     name: vaultwarden
     image: vaultwarden/server:latest
-    user: "{{ vaultwarden_uid:vaultwarden_gid | default('9009:9009') }}"
+    user: "{{ 'vaultwarden_uid:vaultwarden_gid' | default('9009:9009') }}"
     networks:
       - name: nginx_network
     volumes:
