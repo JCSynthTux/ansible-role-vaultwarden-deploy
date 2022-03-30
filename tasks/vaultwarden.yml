@@ -4,7 +4,7 @@
     image: vaultwarden/server:latest
     user: "{{ vaultwarden_uid | default(9009) }}"
     networks:
-      - name: nginx_network
+      - name: "{{ vaultwarden_nginx_network | default('nginx_network') }}"
     volumes:
       - /opt/vaultwarden:/data
     env:
