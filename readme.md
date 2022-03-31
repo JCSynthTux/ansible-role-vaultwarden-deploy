@@ -16,6 +16,8 @@ vaultwarden_signup: "true" #Defaults to false
 vaultwarden_password_hint: "true" #Defaults to false
 vaultwarden_disable_admin_token: "false" #Defaults to false
 vaultwarden_nginx_network: "my_nginx_network" #Defaults to nginx_network
+vaultwarden_container_state: started #Defaults to started - can either be absent, present, stopped or started - container state WILL NOT influence the state of the volumes 
+vaultwarden_image_tag: nightly #Defaults to latest - specify which image to pull
 ```
 ```vaultwarden_nginx_network``` is needed since this role expects an nginx to be running. For this you could use my [nginx role](https://github.com/JCSynthTux/ansible-role-docker-nginx). 
 
