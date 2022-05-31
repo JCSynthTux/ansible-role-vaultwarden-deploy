@@ -7,6 +7,7 @@ This role deploys a Vaultwarden install in a Docker container.
 The Vaultwarden deployment requires some variables, while other are optional.
 #### Required
 ```
+vaultwarden_install: true #Else most skip will be stepped - only runs task to check if user and container are absent
 vaultwarden_domain: your.domain.tld #Domain via vaultwarden should be reachable
 vaultwarden_admin_token: "admintoken1234!" #Authentication for admin panel
 ```
