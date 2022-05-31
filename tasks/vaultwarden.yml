@@ -7,13 +7,6 @@
       - name: "{{ vaultwarden_nginx_network | default('nginx_network') }}"
     volumes:
       - /opt/vaultwarden:/data
-    env:
-      "SIGNUPS_ALLOWED": "{{ vaultwarden_signup | default('false')}}"
-      "SHOW_PASSWORD_HINT": "{{ vaultwarden_password_hint | default('false') }}"
-      "ADMIN_TOKEN": "{{ vaultwarden_admin_token}}"
-      "DISABLE_ADMIN_TOKEN": "{{ vaultwarden_disable_admin_token | default('false')}}"
-      "VIRTUAL_HOST": "{{ vaultwarden_domain }}"
-      "LETSENCRYPT_HOST": "{{ vaultwarden_domain }}"
-      "VIRTUAL_PORT": "80"
+    env: "{{ vaultwarden_env }}"
     restart_policy: always
-    state: "{{ vaultwarden_container_state | default(started) }}"
+    state: "{{ 'started' if vaultwarden_install == true else 'absent' }}"
