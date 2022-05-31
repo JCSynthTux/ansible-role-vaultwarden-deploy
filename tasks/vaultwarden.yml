@@ -2,7 +2,7 @@
   docker_container:
     name: vaultwarden
     image: vaultwarden/server:{{ vaultwarden_image_tag | default(latest) }}
-    pull: yes
+    pull: "{{ vaultwarden_pull | default('yes') }}"
     user: "{{ vaultwarden_uid | default(9009) }}"
     networks:
       - name: "{{ vaultwarden_nginx_network | default('nginx_network') }}"
