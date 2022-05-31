@@ -22,6 +22,8 @@ vaultwarden_image_tag: nightly #Defaults to latest - specify which image to pull
 ```
 ```vaultwarden_nginx_network``` is needed since this role expects an nginx to be running. For this you could use my [nginx role](https://github.com/JCSynthTux/ansible-role-docker-nginx). 
 
+You might be able to run this without my nginx role. The vaultwarden does not expose any ports on 0.0.0.0 . But you could attache any network via the ```vaultwarden_nginx_network variable```.
+
 There is also ```vaultwarden_data:/path/to/vw/data```. This is only used for migrating to this playbook. Dont put this hardcoded into your ```vars.yml``` file, instead use this with ```--extra-vars='vaultwarden_data=/path/to/vw/data/'``` when running the playbook. 
 The path should be on the same system from where you are running the playbook. This will basically copy every file and folder of your existing vaultwarden volume the new one.
 
