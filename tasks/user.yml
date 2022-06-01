@@ -3,7 +3,7 @@
     name: vaultwarden
     state: present
     gid: "{{ vaultwarden_gid | default(9009) }}"
-  when: vaultwarden_install is defined
+  when: vaultwarden_install is defined and vaultwarden_install == true
 
 - name: Create user "vaultwarden"  
   user:

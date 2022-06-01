@@ -1,7 +1,7 @@
 - name: Start vaultwarden container
   docker_container:
     name: vaultwarden
-    image: vaultwarden/server:{{ vaultwarden_image_tag | default(latest) }}
+    image: "vaultwarden/server:{{ vaultwarden_image_tag | default(latest) }}"
     pull: "{{ vaultwarden_pull | default('yes') }}"
     user: "{{ vaultwarden_uid | default(9009) }}"
     networks:
