@@ -2,6 +2,7 @@
   docker_container:
     name: vaultwarden
     state: absent
+  when: vaultwarden_uninstall is defined and vaultwarden_uninstall is true
 
 
 - name: Backup vaultwarden data
@@ -9,14 +10,17 @@
     path: /opt/vaultwarden
     dest: /opt/vaultwarden-backup.tgz 
     remove: yes
+  when: vaultwarden_uninstall is defined and vaultwarden_uninstall is true
 
 - name: Remove user "vaultwarden"  
   user:
     name: vaultwarden
     state: absent
+  when: vaultwarden_uninstall is defined and vaultwarden_uninstall is true
 
 - name: Remove group "vaultwarden"
   group:
     name: vaultwarden
     state: absent
+  when: vaultwarden_uninstall is defined and vaultwarden_uninstall is true
 
