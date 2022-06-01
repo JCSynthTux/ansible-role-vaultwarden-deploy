@@ -1,0 +1,22 @@
+- name: Remove vaultwarden container
+  docker_container:
+    name: vaultwarden
+    state: absent
+
+
+- name: Backup vaultwarden data
+  community.general.archive:
+    path: /opt/vaultwarden
+    dest: /opt/vaultwarden-backup.tgz 
+    remove: yes
+
+- name: Remove user "vaultwarden"  
+  user:
+    name: vaultwarden
+    state: absent
+
+- name: Remove group "vaultwarden"
+  group:
+    name: vaultwarden
+    state: absent
+
