@@ -1,8 +1,14 @@
-- import_tasks: ./user.yml
+- import_tasks: "{{ role_path }}/tasks/user.yml"
+  tags: install-vaultwarden
 
-- import_tasks: ./volumes.yml
+- import_tasks: "{{ role_path }}/tasks/volumes.yml"
+  tags: install-vaultwarden
 
-- import_tasks: ./vaultwarden.yml
+- import_tasks: "{{ role_path }}/tasks/vaultwarden.yml"
+  tags: install-vaultwarden
 
-- import_tasks: ./migration.yml
+- import_tasks: "{{ role_path }}/tasks/uninstall.yml"
+  tags: uninstall-vaultwarden
+
+- import_tasks: "{{ role_path }}/tasks/migration.yml"
   tags: migrate-vaultwarden
