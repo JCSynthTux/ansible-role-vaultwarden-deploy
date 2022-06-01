@@ -24,4 +24,6 @@
       SMTP_PASSWORD: "{{ vaultwarden_smtp_password | default(omit) }}"
       SMTP_AUTH_MECHANISM: "{{ vaultwarden_smtp_authmech | default(omit) }}"
     restart_policy: always
-    state: "{{ 'started' if vaultwarden_install == true else 'absent' }}"
+    state: "{{ vaultwarden_container_state | default('started') }}"
+  when: vaultwarden_install is defined and vaultwarden_install is true 
+  
