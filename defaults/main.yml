@@ -11,4 +11,4 @@ vaultwarden_disable_admin_token: false
 vaultwarden_password_hint: false
 vaultwarden_install_path: /opt/vaultwarden
 vaultwarden_restart_policy: always
-
+vaultwarden_container_state: started
