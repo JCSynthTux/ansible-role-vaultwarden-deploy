@@ -1,26 +1,21 @@
+- name: Gather infos of running vaultwarden
+  docker_container_info:
+    name: vaultwarden
+  register: result
+
+- name: Current vaultwarden status
+  ansible.builtin.debug:
+    msg: "The container {{ 'exists' if result.exists else 'does not exist' }}"
+
 - name: Remove vaultwarden container
   docker_container:
     name: vaultwarden
     state: absent
-  when: vaultwarden_uninstall is defined and vaultwarden_uninstall is true
-
+  when: result.exists
 
 - name: Backup vaultwarden data
   community.general.archive:
-    path: /opt/vaultwarden
+    path: "{{ vaultwarden_install_path }}"
     dest: /opt/vaultwarden-backup.tgz 
     remove: yes
-  when: vaultwarden_uninstall is defined and vaultwarden_uninstall is true
-
-- name: Remove user "vaultwarden"  
-  user:
-    name: vaultwarden
-    state: absent
-  when: vaultwarden_uninstall is defined and vaultwarden_uninstall is true
-
-- name: Remove group "vaultwarden"
-  group:
-    name: vaultwarden
-    state: absent
-  when: vaultwarden_uninstall is defined and vaultwarden_uninstall is true
 
