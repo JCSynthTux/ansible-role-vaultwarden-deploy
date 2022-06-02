@@ -22,7 +22,8 @@ This role deploys a Vaultwarden install in a Docker container.
 | vaultwarden_install_path | Path to install vaultwarden to |
 | vaultwarden_restart_policy | Container restart policy | 
 | vaultwarden_admin_token | Password used for admin authentication
-| vaultwarden_data | Path of your old vaultwarden data you want to migrate over | 
+| vaultwarden_data | Path of your old vaultwarden data you want to migrate over |
+| vaultwarden_domain | Domain which should be used for vaultwarden. See the [Proxies](https://github.com/JCSynthTux/ansible-role-vaultwarden-deploy#proxies) section |
 ### Defaults
   Defaults for most Variables are in ```defaults/main.yml```. 
 
@@ -53,3 +54,9 @@ This process will:
 - Remove vaultwarden linux user
 - Remove vaultwarden linux group
 
+## Proxies
+This container is meant to be attached to a docker network of your proxy. 
+
+The container listens on port ```80``` , but does not export anyport to wider network. Port ```80``` is basically only exposed on the localhost of the container.
+
+I would recommend using this [role](https://github.com/JCSynthTux/ansible-role-docker-nginx) of mine. But I guess you could use any reverse proxy as long as the vaultwarden and the proxy can communicate. 
