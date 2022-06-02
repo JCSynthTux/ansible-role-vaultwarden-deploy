@@ -1,3 +1,4 @@
+---
 - name: Create group "vaultwarden"
   group:
     name: vaultwarden

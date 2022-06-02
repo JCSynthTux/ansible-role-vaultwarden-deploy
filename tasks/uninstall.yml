@@ -1,3 +1,4 @@
+---
 - name: Gather infos of running vaultwarden
   docker_container_info:
     name: vaultwarden

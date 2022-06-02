@@ -1,3 +1,4 @@
+---
 - name: Stop vaultwarden container
   docker_container:
     name: vaultwarden
@@ -11,3 +12,4 @@
     group: vaultwarden
     mode: '0700'
   notify: Restart vaultwarden container
+

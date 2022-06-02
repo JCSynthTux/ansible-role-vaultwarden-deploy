@@ -1,3 +1,4 @@
+---
 - name: {{ (vaultwarden_install == true) | ternary('Spawn', 'Remove') }} vaultwarden container
   docker_container:
     name: vaultwarden

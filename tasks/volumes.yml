@@ -1,3 +1,4 @@
+---
 - name: Create vaultwarden data volume
   file:
     path: "{{ vaultwarden_install_path }}"

@@ -1,3 +1,4 @@
+---
 - import_tasks: "{{ role_path }}/tasks/uninstall.yml"
   when: vaultwarden_install is false and vaultwarden_uninstall is true 
   tags: uninstall-vaultwarden
@@ -17,3 +18,4 @@
 - import_tasks: "{{ role_path }}/tasks/migration.yml"
   when: vaultwarden_data is defined and vaultwarden_install == true
   tags: migrate-vaultwarden
+
