@@ -4,26 +4,34 @@ This role deploys a Vaultwarden install in a Docker container.
 
 ## Variables
 
-The Vaultwarden deployment requires some variables, while other are optional.
-#### Required
-```
-vaultwarden_install: true #Else most steps will be skipped - only runs task to check if user and container are absent
-vaultwarden_domain: your.domain.tld #Domain via vaultwarden should be reachable
-vaultwarden_admin_token: "admintoken1234!" #Authentication for admin panel
-```
-#### Optional
-```
-vaultwarden_signup: "true" #Defaults to false
-vaultwarden_password_hint: "true" #Defaults to false
-vaultwarden_disable_admin_token: "false" #Defaults to false
-vaultwarden_nginx_network: "my_nginx_network" #Defaults to nginx_network
-vaultwarden_container_state: started #Defaults to started - can either be absent, present, stopped or started - container state WILL NOT influence the state of the volumes 
-vaultwarden_image_tag: nightly #Defaults to latest - specify which image to pull
-```
-```vaultwarden_nginx_network``` is needed since this role expects an nginx to be running. For this you could use my [nginx role](https://github.com/JCSynthTux/ansible-role-docker-nginx). 
+### Basics
 
-You might be able to run this without my nginx role. The vaultwarden does not expose any ports on 0.0.0.0 . But you could attache any network via the ```vaultwarden_nginx_network variable```.
+| Variable Name           | Usage                 |
+|-------------------------|-----------------------|
+| vaultwarden_install     | True to install on host |
+| vaultwarden_uninstall   | True to uninstall on host |
+| vaultwarden_image_tag   | Specify tag to pull |
+| vaultwarden_pull        | Should image be pulled on every run |
+| vaultwarden_uid         | UID to use for vaultwarden linux user |
+| vaultwarden_gid         | GID to use for vaultwarden linux group | 
+| vaultwarden_nginx_network | Docker network of reverse proxy | 
+| vaultwarden_signup      | Disable or enable signup | 
+| vaultwarden_invitations_allowed | Disable or enable signup via invitation |
+| vaultwarden_disable_admin_token | Setting this to true will expose the admin panel WITHOUT protection |
+| vaultwarden_password_hint | Ability to display password hint created during registration |
+| vaultwarden_install_path | Path to install vaultwarden to |
+| vaultwarden_restart_policy | Container restart policy | 
+| vaultwarden_admin_token | Password used for admin authentication
 
-There is also ```vaultwarden_data:/path/to/vw/data```. This is only used for migrating to this playbook. Dont put this hardcoded into your ```vars.yml``` file, instead use this with ```--extra-vars='vaultwarden_data=/path/to/vw/data/'``` when running the playbook. 
-The path should be on the same system from where you are running the playbook. This will basically copy every file and folder of your existing vaultwarden volume the new one.
+### Defaults
+  Defaults for most Variables are in ```defaults/main.yml```. 
+
+### A few important notes
+To deploy vaultwarden set ```vaultwarden_install``` to ```true``` and ```vaultwarden_uninstall``` to false (default).
+
+To uninstall vaultwarden set ```vaultwarden_install``` to ```false``` (default) and ```vaultwarden_uninstall``` to ```true```.
+
+A default for ```vaultwarden_admin_token``` IS NOT SET. Therefore the admin interface is DISABLED.
+Please set a password or secure the admin panel otherwise. 
+Unless you know what you doing leave ```vaultwarden_disable_admin_token``` to default.
 
