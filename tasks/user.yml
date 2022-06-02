@@ -3,7 +3,6 @@
     name: vaultwarden
     state: present
     gid: "{{ vaultwarden_gid }}"
-  when: vaultwarden_install is defined and vaultwarden_install == true
 
 - name: Create user "vaultwarden"  
   user:
@@ -14,5 +13,4 @@
     create_home: no
     append: yes
     state: present
-  when: vaultwarden_install is defined and vaultwarden_install == true
 
