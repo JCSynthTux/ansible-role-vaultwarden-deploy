@@ -19,3 +19,13 @@
     dest: /opt/vaultwarden-backup.tgz 
     remove: yes
 
+- name: Remove user "vaultwarden"  
+  user:
+    name: vaultwarden
+    state: absent
+
+- name: Remove group "vaultwarden"
+  group:
+    name: vaultwarden
+    state: absent
+
