@@ -7,7 +7,7 @@
     networks:
       - name: "{{ vaultwarden_nginx_network }}"
     volumes:
-      - /opt/vaultwarden:/data
+      - "{{ vaultwarden_install_path }}:/data"
     env:
       VIRTUAL_HOST: "{{ vaultwarden_domain | default(omit) }}"
       VIRTUAL_PORT: "80"

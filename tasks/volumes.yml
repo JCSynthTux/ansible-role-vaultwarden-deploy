@@ -1,6 +1,6 @@
 - name: Create vaultwarden data volume
   file:
-    path: /opt/vaultwarden
+    path: "{{ vaultwarden_install_path }}"
     state: directory
     owner: vaultwarden
     group: vaultwarden

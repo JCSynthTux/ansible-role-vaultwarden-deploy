@@ -6,5 +6,6 @@ vaultwarden_gid: 9009
 vaultwarden_nginx_network: nginx_network
 vaultwarden_signup: false
 vaultwarden_password_hint: false
+vaultwarden_install_path: /opt/vaultwarden
 vaultwarden_restart_policy: always
 
