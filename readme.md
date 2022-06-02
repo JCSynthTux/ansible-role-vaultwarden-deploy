@@ -14,7 +14,7 @@ This role deploys a Vaultwarden install in a Docker container.
 | vaultwarden_pull        | Should image be pulled on every run |
 | vaultwarden_uid         | UID to use for vaultwarden linux user |
 | vaultwarden_gid         | GID to use for vaultwarden linux group | 
-| vaultwarden_nginx_network | Docker network of reverse proxy | 
+| vaultwarden_proxy_network | Docker network of reverse proxy | 
 | vaultwarden_signup      | Disable or enable signup | 
 | vaultwarden_invitations_allowed | Disable or enable signup via invitation |
 | vaultwarden_disable_admin_token | Setting this to true will expose the admin panel WITHOUT protection |
@@ -22,7 +22,7 @@ This role deploys a Vaultwarden install in a Docker container.
 | vaultwarden_install_path | Path to install vaultwarden to |
 | vaultwarden_restart_policy | Container restart policy | 
 | vaultwarden_admin_token | Password used for admin authentication
-
+| vaultwarden_data | Path of your old vaultwarden data you want to migrate over | 
 ### Defaults
   Defaults for most Variables are in ```defaults/main.yml```. 
 
@@ -34,4 +34,22 @@ To uninstall vaultwarden set ```vaultwarden_install``` to ```false``` (default) 
 A default for ```vaultwarden_admin_token``` IS NOT SET. Therefore the admin interface is DISABLED.
 Please set a password or secure the admin panel otherwise. 
 Unless you know what you doing leave ```vaultwarden_disable_admin_token``` to default.
+
+## Migrating
+Setting ```vaultwarden_data``` to the path of your old vaultwarden data (on the machine from where you are running ansible)
+and setting ```vaultwarden_install``` to ```true``` will trigger the migrate process.
+
+This will basically push your old data over to the target machine.
+
+Please set ```vaultwarden_data``` via ```--extra-vars```. DO NOT HARDCODE IT INTO YOUR HOST VARS.
+
+## Uninstall Vaultwarden
+Setting ```vaultwarden_install``` to ```false``` (default) and ```vaultwarden_uninstall``` to ```true``` will start the uninstall process.
+
+This process will:
+- Remove the container
+- Backup your data 
+- Remove the volume of your data (only backup will remain)
+- Remove vaultwarden linux user
+- Remove vaultwarden linux group
 
