@@ -2,13 +2,13 @@
   group:
     name: vaultwarden
     state: present
-    gid: "{{ vaultwarden_gid | default(9009) }}"
+    gid: "{{ vaultwarden_gid }}"
   when: vaultwarden_install is defined and vaultwarden_install == true
 
 - name: Create user "vaultwarden"  
   user:
     name: vaultwarden
-    uid: "{{vaultwarden_uid | default(9009)}}"
+    uid: "{{ vaultwarden_uid }}"
     group: vaultwarden
     shell: /sbin/nologin
     create_home: no
