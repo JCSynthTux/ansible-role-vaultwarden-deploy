@@ -6,7 +6,7 @@
     pull: "{{ vaultwarden_pull }}"
     user: "{{ vaultwarden_uid }}"
     networks:
-      - name: "{{ vaultwarden_nginx_network }}"
+      - name: "{{ vaultwarden_proxy_network }}"
     volumes:
       - "{{ vaultwarden_install_path }}:/data"
     env:
