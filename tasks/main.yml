@@ -15,5 +15,5 @@
   tags: install-vaultwarden
 
 - import_tasks: "{{ role_path }}/tasks/migration.yml"
-  when: vaultwarden_install is true and vaultwarden_uninstall is false 
+  when: vaultwarden_data is defined and vaultwarden_install == true
   tags: migrate-vaultwarden
