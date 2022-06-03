@@ -17,16 +17,25 @@ on:
 jobs:
 
   lint:
+    name: Lint
     runs-on: ubuntu-latest
     steps:
       - name: checkout
         uses: actions/checkout@v2
         with:
           path: "${{ github.repository }}"
-      - name: molecule
-        uses: robertdebock/molecule-action@4.0.8
+
+      - name: setup python 3
+        uses: actions/setup-python@v2
         with:
-          command: lint
+          python-version: '3.x'
+
+      - name: install dependencies
+        run: pip3 install yamllint
+
+      - name: lint
+        run: |
+          yamllint .
 
   test:
     runs-on: ubuntu-latest
