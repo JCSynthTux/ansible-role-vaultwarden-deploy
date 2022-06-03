@@ -12,4 +12,3 @@
     group: vaultwarden
     mode: '0700'
   notify: Restart vaultwarden container
-

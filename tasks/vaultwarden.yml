@@ -28,4 +28,3 @@
       SMTP_AUTH_MECHANISM: "{{ vaultwarden_smtp_authmech | default(omit) }}"
     restart_policy: "{{ vaultwarden_restart_policy }}"
     state: "{{ vaultwarden_container_state }}"
-  

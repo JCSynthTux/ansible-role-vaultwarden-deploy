@@ -5,7 +5,7 @@
     state: present
     gid: "{{ vaultwarden_gid }}"
 
-- name: Create user "vaultwarden"  
+- name: Create user "vaultwarden"
   user:
     name: vaultwarden
     uid: "{{ vaultwarden_uid }}"
@@ -14,4 +14,3 @@
     create_home: no
     append: yes
     state: present
-

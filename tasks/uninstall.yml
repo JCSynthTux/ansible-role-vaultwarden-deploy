@@ -17,10 +17,10 @@
 - name: Backup vaultwarden data
   community.general.archive:
     path: "{{ vaultwarden_install_path }}"
-    dest: /opt/vaultwarden-backup.tgz 
+    dest: /opt/vaultwarden-backup.tgz
     remove: yes
 
-- name: Remove user "vaultwarden"  
+- name: Remove user "vaultwarden"
   user:
     name: vaultwarden
     state: absent
@@ -29,4 +29,3 @@
   group:
     name: vaultwarden
     state: absent
-

@@ -14,4 +14,3 @@
     name: vaultwarden
     state: started
     restart: yes
-
