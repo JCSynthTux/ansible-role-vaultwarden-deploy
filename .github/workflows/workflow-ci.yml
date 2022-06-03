@@ -37,7 +37,7 @@ jobs:
 
       - name: lint
         run: |
-          yamllint .
+          yamllint . -c .yamllint
 
   test:
     runs-on: ubuntu-latest
