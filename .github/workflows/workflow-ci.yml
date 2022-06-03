@@ -15,6 +15,10 @@ on:
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
+defaults:
+  run:
+    working_directory: "${{ github.repository }}" 
+    
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
@@ -37,7 +41,7 @@ jobs:
 
       - name: lint
         run: |
-          yamllint . -c .yamllint
+          yamllint .
 
   test:
     runs-on: ubuntu-latest
