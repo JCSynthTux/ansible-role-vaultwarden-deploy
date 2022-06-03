@@ -49,6 +49,7 @@ I would recommend including the role like this:
 ```
 This should prevent unwanted deployments on systems.
 
+Based on this [Issue](https://github.com/geerlingguy/ansible-role-docker/pull/17#discussion_r134054221).
 ## Uninstall Vaultwarden
 Setting ```vaultwarden_uninstall``` to ```true``` will start the uninstall process.
 
