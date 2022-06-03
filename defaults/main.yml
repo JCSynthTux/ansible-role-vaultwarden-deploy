@@ -1,4 +1,3 @@
-vaultwarden_install: false
 vaultwarden_uninstall: false
 vaultwarden_image_tag: latest
 vaultwarden_pull: yes
