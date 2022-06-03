@@ -17,8 +17,8 @@ on:
 
 defaults:
   run:
-    working-directory: ${{ github.repository }}
-    
+    working-directory: 'jchroback.vaultwarden'
+
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
 
@@ -29,7 +29,7 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
         with:
-          path: "${{ github.repository }}"
+          path: 'jchroback.vaultwarden'
 
       - name: setup python 3
         uses: actions/setup-python@v2
