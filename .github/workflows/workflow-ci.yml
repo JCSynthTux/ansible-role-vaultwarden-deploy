@@ -44,6 +44,7 @@ jobs:
           yamllint .
 
   test:
+    name: test
     runs-on: ubuntu-latest
     steps:
       - name: checkout
@@ -51,7 +52,7 @@ jobs:
         with:
           path: "${{ github.repository }}"
 
-    - name: setup python3
+      - name: setup python3
         uses: actions/setup-python@v2
         with:
           python-version: '3.x'
@@ -63,7 +64,7 @@ jobs:
         run: molecule test
 
   release:
-    needs:
+    n2PSePJD8CPavYV6jeeds:
       - lint
       - test
     runs-on: ubuntu-latest
