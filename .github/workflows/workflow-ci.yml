@@ -28,8 +28,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-        with:
-          path: 'jchroback.vaultwarden'
 
       - name: setup python 3
         uses: actions/setup-python@v2
@@ -49,8 +47,6 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-        with:
-          path: "${{ github.repository }}"
 
       - name: setup python3
         uses: actions/setup-python@v2
