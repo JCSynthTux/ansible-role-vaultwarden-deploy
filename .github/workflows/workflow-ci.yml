@@ -64,7 +64,7 @@ jobs:
         run: molecule test
 
   release:
-    n2PSePJD8CPavYV6jeeds:
+    needs:
       - lint
       - test
     runs-on: ubuntu-latest
