@@ -13,7 +13,6 @@ This role deploys a Vaultwarden install in a Docker container.
 | vaultwarden_pull        | Should image be pulled on every run |
 | vaultwarden_uid         | UID to use for vaultwarden linux user |
 | vaultwarden_gid         | GID to use for vaultwarden linux group | 
-| vaultwarden_proxy_network | Docker network of reverse proxy | 
 | vaultwarden_signup      | Disable or enable signup | 
 | vaultwarden_invitations_allowed | Disable or enable signup via invitation |
 | vaultwarden_disable_admin_token | Setting this to true will expose the admin panel WITHOUT protection |
@@ -23,9 +22,19 @@ This role deploys a Vaultwarden install in a Docker container.
 | vaultwarden_admin_token | Password used for admin authentication
 | vaultwarden_data | Path of your old vaultwarden data you want to migrate over |
 | vaultwarden_domain | Domain which should be used for vaultwarden. See the [Proxies](https://github.com/JCSynthTux/ansible-role-vaultwarden-deploy#proxies) section |
+| vaultwarden_container_name | Name of vaultwarden container |
+| vaultwarden_networks | List of networks to attach to container |
 
 ### Defaults
 Defaults for most Variables are in ```defaults/main.yml```. 
+
+For ```vaultwarden_networks``` a list like this is expected:
+```
+vaultwarden_networks:
+  - name: proxy_network
+  - name: nginx_network
+  - name: internal_network
+```
 
 ### A few important notes
 A default for ```vaultwarden_admin_token``` IS NOT SET. Therefore the admin interface is DISABLED.

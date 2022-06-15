@@ -1,12 +1,11 @@
 ---
 - name: Spawn vaultwarden container
   docker_container:
-    name: vaultwarden
+    name: "{{ vaultwarden_container_name }}"
     image: "vaultwarden/server:{{ vaultwarden_image_tag }}"
     pull: "{{ vaultwarden_pull }}"
     user: "{{ vaultwarden_uid }}"
-    networks:
-      - name: "{{ vaultwarden_proxy_network }}"
+    networks: "{{ vaultwarden_networks | default(omit) }}"
     volumes:
       - "{{ vaultwarden_install_path }}:/data"
     env:
