@@ -36,6 +36,19 @@ vaultwarden_networks:
   - name: internal_network
 ```
 
+You can also setup smtp support via this role. Following variables are available and omitted when not set.
+```
+vaultwarden_smtp_host:
+vaultwarden_smtp_ssl:
+vaultwarden_smtp_from:
+vaultwarden_smtp_port:
+vaultwarden_smtp_username:
+vaultwarden_smtp_password:
+vaultwarden_smtp_authmech:
+vaultwarden_smtp_explicit_tls:
+```
+The possible values for these vars can be found in the [documentation](https://github.com/dani-garcia/vaultwarden/wiki/SMTP-Configuration) of the container.
+
 ### A few important notes
 A default for ```vaultwarden_admin_token``` IS NOT SET. Therefore the admin interface is DISABLED.
 Please set a password or secure the admin panel otherwise. 
