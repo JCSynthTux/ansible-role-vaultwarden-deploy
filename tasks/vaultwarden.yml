@@ -25,5 +25,6 @@
       SMTP_USERNAME: "{{ vaultwarden_smtp_username | default(omit) }}"
       SMTP_PASSWORD: "{{ vaultwarden_smtp_password | default(omit) }}"
       SMTP_AUTH_MECHANISM: "{{ vaultwarden_smtp_authmech | default(omit) }}"
+    labels: "{{ vaultwarden_labels | default(omit) }}"
     restart_policy: "{{ vaultwarden_restart_policy }}"
     state: "{{ vaultwarden_container_state }}"
