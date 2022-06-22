@@ -3,7 +3,7 @@ dependencies: []
 
 galaxy_info:
   role_name: vaultwarden
-  author: jchroback
+  author: JCSynthTux
   description: Vaultwarden deployment in Docker
   company: ""
   license: "license (BSD, MIT)"
@@ -25,3 +25,5 @@ galaxy_info:
     - vaultwarden
     - bitwarden
     - docker
+    - password
+    - security
