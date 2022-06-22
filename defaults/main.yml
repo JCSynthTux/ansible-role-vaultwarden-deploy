@@ -1,13 +1,36 @@
-vaultwarden_uninstall: false
-vaultwarden_image_tag: latest
-vaultwarden_pull: yes
-vaultwarden_uid: 9009
-vaultwarden_gid: 9009
-vaultwarden_signup: false
-vaultwarden_invitations_allowed: false
-vaultwarden_disable_admin_token: false
-vaultwarden_password_hint: false
-vaultwarden_install_path: /opt/vaultwarden
-vaultwarden_restart_policy: always
-vaultwarden_container_state: started
-vaultwarden_container_name: vaultwarden
+vaultwarden_uninstall: "false"
+vaultwarden_image_tag: "latest"
+vaultwarden_pull: "yes"
+vaultwarden_uid: "9009"
+vaultwarden_gid: "9009"
+vaultwarden_signup: "false"
+vaultwarden_invitations_allowed: "false"
+vaultwarden_admin_token: ""
+vaultwarden_smtp_host: ""
+vaultwarden_smtp_username: ""
+vaultwarden_smtp_password: ""
+vaultwarden_smtp_port: ""
+vaultwarden_smtp_ssl: ""
+vaultwarden_smtp_from: ""
+vaultwarden_smtp_authmech: ""
+vaultwarden_smtp_explicit_tls: ""
+vaultwarden_disable_admin_token: "false"
+vaultwarden_password_hint: "false"
+vaultwarden_install_path: "/opt/vaultwarden"
+vaultwarden_restart_policy: "always"
+vaultwarden_container_state: "started"
+vaultwarden_container_name: "vaultwarden"
+vaultwarden_interface_addr: "127.0.0.1"
+vaultwarden_webui_host_port: "80"
+vaultwarden_socket_host_port: "3012"
+vaultwarden_webui_container_port: "80"
+vaultwarden_socket_container_port: "3012"
+vaultwarden_webui_port: 
+  - "{{ vaultwarden_interface_addr }}:{{ vaultwarden_webui_host_port }}:{{ vaultwarden_webui_container_port }}"
+vaultwarden_socket_port: 
+  - "{{ vaultwarden_interface_addr }}:{{ vaultwarden_socket_host_port }}:{{ vaultwarden_socket_container_port }}"
+vaultwarden_ports: "{{ vaultwarden_webui_port + vaultwarden_socket_port }}"
+vaultwarden_networks: []
+vaultwarden_labels: []
+vaultwarden_remote_env_path: "/tmp/{{ vaultwarden_container_name }}.env"
+vaultwarden_env_extra: {}
