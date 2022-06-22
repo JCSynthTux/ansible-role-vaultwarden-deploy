@@ -33,5 +33,5 @@ vaultwarden_socket_port:
 vaultwarden_ports: "{{ vaultwarden_webui_port + vaultwarden_socket_port }}"
 vaultwarden_networks: []
 vaultwarden_labels: []
-vaultwarden_remote_env_path: "/tmp/{{ vaultwarden_container_name }}.env"
+vaultwarden_remote_env_path: "/tmp/{{ vaultwarden_container_name }}_{{ epoch }}.env"
 vaultwarden_env_extra: {}
