@@ -1,3 +1,4 @@
+---
 vaultwarden: "false"
 vaultwarden_uninstall: "false"
 vaultwarden_image_tag: "latest"
@@ -26,9 +27,9 @@ vaultwarden_webui_host_port: "80"
 vaultwarden_socket_host_port: "3012"
 vaultwarden_webui_container_port: "80"
 vaultwarden_socket_container_port: "3012"
-vaultwarden_webui_port: 
+vaultwarden_webui_port:
   - "{{ vaultwarden_interface_addr }}:{{ vaultwarden_webui_host_port }}:{{ vaultwarden_webui_container_port }}"
-vaultwarden_socket_port: 
+vaultwarden_socket_port:
   - "{{ vaultwarden_interface_addr }}:{{ vaultwarden_socket_host_port }}:{{ vaultwarden_socket_container_port }}"
 vaultwarden_ports: "{{ vaultwarden_webui_port + vaultwarden_socket_port }}"
 vaultwarden_networks: []

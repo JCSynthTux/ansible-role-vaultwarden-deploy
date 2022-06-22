@@ -1,6 +1,6 @@
 ---
 - import_tasks: "{{ role_path }}/tasks/uninstall.yml"
-  when: vaultwarden_uninstall|bool 
+  when: vaultwarden_uninstall|bool
   tags: uninstall-vaultwarden
 
 - import_tasks: "{{ role_path }}/tasks/user.yml"
