@@ -2,7 +2,6 @@
 - name: Push env file
   template:
     src: "{{ role_path }}/templates/vaultwarden.env.j2"
-      #  src: "{{ role_path }}/templates/{{ 'vaultwarden.env.j2' if vaultwarden_smtp_host is undefined else 'vaultwarden.smtp.env.j2' }}"
     dest: "{{ vaultwarden_remote_env_path }}"
   register: envpush
 
