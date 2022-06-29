@@ -5,7 +5,7 @@
     dest: "{{ vaultwarden_remote_env_path }}"
   register: envpush
 
-- name: Spawn vaultwarden container
+- name: "Spawn {{ vaultwarden_container_name }} container"
   docker_container:
     name: "{{ vaultwarden_container_name }}"
     image: "vaultwarden/server:{{ vaultwarden_image_tag|string }}"

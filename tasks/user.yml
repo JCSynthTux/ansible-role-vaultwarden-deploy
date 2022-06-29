@@ -1,11 +1,11 @@
 ---
-- name: Create group "vaultwarden"
+- name: "Create group {{ vaultwarden_linux_group_name }}"
   group:
     name: "{{ vaultwarden_linux_group_name }}"
     state: present
     gid: "{{ vaultwarden_linux_user_gid }}"
 
-- name: Create user "vaultwarden"
+- name: "Create user {{ vaultwarden_linux_user_name }}"
   user:
     name: "{{ vaultwarden_linux_user_name }}"
     uid: "{{ vaultwarden_linux_user_uid }}"
