@@ -1,14 +1,14 @@
 ---
-- name: Stop vaultwarden container
+- name: "Stop {{ vaultwarden_container_name }}"
   docker_container:
-    name: vaultwarden
+    name: "{{ vaultwarden_container_name }}"
     state: stopped
 
 - name: Migrate vaultwarden data
   copy:
     src: "{{ vaultwarden_data }}"
-    dest: /opt/vaultwarden/
-    owner: vaultwarden
-    group: vaultwarden
+    dest: "{{ vaultwarden_install_path }}"
+    owner: "{{ vaultwarden_linux_user_name }}"
+    group: "{{ vaultwarden_linux_group_name }}"
     mode: '0700'
   notify: Restart vaultwarden container
