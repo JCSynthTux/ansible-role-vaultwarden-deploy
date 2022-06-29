@@ -1,16 +1,16 @@
 ---
 - name: Start vaultwarden container
   docker_container:
-    name: vaultwarden
+    name: "{{ vaultwarden_container_name }}"
     state: started
 
 - name: Stop vaultwarden container
   docker_container:
-    name: vaultwarden
+    name: "{{ vaultwarden_container_name }}"
     state: stopped
 
 - name: Restart vaultwarden container
   docker_container:
-    name: vaultwarden
+    name: "{{ vaultwarden_container_name }}"
     state: started
     restart: yes
