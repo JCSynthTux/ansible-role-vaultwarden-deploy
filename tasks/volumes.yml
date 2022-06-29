@@ -3,6 +3,6 @@
   file:
     path: "{{ vaultwarden_install_path }}"
     state: directory
-    owner: vaultwarden
-    group: vaultwarden
+    owner: "{{ vaultwarden_linux_user_name }}"
+    group: "{{ vaultwarden_linux_group_name }}"
     mode: '0700'

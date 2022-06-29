@@ -1,15 +1,15 @@
 ---
 - name: Create group "vaultwarden"
   group:
-    name: vaultwarden
+    name: "{{ vaultwarden_linux_group_name }}"
     state: present
-    gid: "{{ vaultwarden_gid }}"
+    gid: "{{ vaultwarden_linux_user_gid }}"
 
 - name: Create user "vaultwarden"
   user:
-    name: vaultwarden
-    uid: "{{ vaultwarden_uid }}"
-    group: vaultwarden
+    name: "{{ vaultwarden_linux_user_name }}"
+    uid: "{{ vaultwarden_linux_user_uid }}"
+    group: "{{ vaultwarden_linux_group_name }}"
     shell: /sbin/nologin
     create_home: no
     append: yes

@@ -10,7 +10,7 @@
     name: "{{ vaultwarden_container_name }}"
     image: "vaultwarden/server:{{ vaultwarden_image_tag|string }}"
     pull: "{{ vaultwarden_pull }}"
-    user: "{{ vaultwarden_uid }}"
+    user: "{{ vaultwarden_linux_user_uid }}"
     networks: "{{ vaultwarden_networks }}"
     ports: "{{ vaultwarden_ports }}"
     volumes:
