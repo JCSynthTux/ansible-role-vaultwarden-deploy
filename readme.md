@@ -9,7 +9,6 @@ Default values for variables are in ```defaults/main.yml```.
 
 ### Examples
 ```
-vaultwarden: "true"
 vaultwarden_interface_addr: "0.0.0.0"
 ```
 
@@ -38,7 +37,7 @@ Include the role like this:
 ```
 
 ## Uninstall Vaultwarden
-Setting ```vaultwarden_uninstall``` to ```true``` and ```vaultwarden``` to ```false``` will start the uninstall process.
+Setting ```vaultwarden_uninstall``` to ```true``` will start the uninstall process.
 
 This process will:
 - Remove the container
@@ -53,7 +52,6 @@ This role should work with most reverse proxies in any configuration.
 I would recommend using this [role](https://github.com/JCSynthTux/ansible-role-docker-nginx) of mine.
 The variables in combination with the NGINX role would look like this:
 ```
-vaultwarden: "true"
 vaultwarden_networks:
   - name: nginx_network
 vaultwarden_ports: []
