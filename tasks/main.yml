@@ -4,17 +4,17 @@
   tags: uninstall-vaultwarden
 
 - include_tasks: "{{ role_path }}/tasks/user.yml"
-  when: vaultwarden_uninstall|bool is false
+  when: vaultwarden_uninstall|bool is false and vaultwarden|bool
   tags: install-vaultwarden
 
 - include_tasks: "{{ role_path }}/tasks/volumes.yml"
-  when: vaultwarden_uninstall|bool is false
+  when: vaultwarden_uninstall|bool is false and vaultwarden|bool
   tags: install-vaultwarden
 
 - include_tasks: "{{ role_path }}/tasks/vaultwarden.yml"
-  when: vaultwarden_uninstall|bool is false
+  when: vaultwarden_uninstall|bool is false and vaultwarden|bool
   tags: install-vaultwarden
 
 - include_tasks: "{{ role_path }}/tasks/migration.yml"
-  when: vaultwarden_data is defined and vaultwarden_uninstall is false
+  when: vaultwarden_data is defined and vaultwarden_uninstall is false and vaultwarden|bool
   tags: migrate-vaultwarden
